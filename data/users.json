@@ -1,0 +1,12 @@
+[
+  {
+    "firstName": "Ashini",
+    "lastName": "Kulatunga",
+    "email": "ashini.kulatunga@gmail.com",
+    "dateOfBirth": "1998/03/15",
+    "mobile": 7145687795,
+    "status": true,
+    "password": "12234",
+    "accountType": "Admin"
+  }
+]

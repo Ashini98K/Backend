@@ -4,6 +4,9 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
+const userApi = require("./controllers/user_controller");
+const loginApi = require("./controllers/login_controller");
+
 dotenv.config();
 const app = express();
 app.use(cors());
@@ -36,3 +39,6 @@ app.listen(PORT, () => {
 app.route("/").get((req, res) => {
   res.send("Backend");
 });
+
+app.use("/user", userApi());
+app.use("/login", loginApi());
