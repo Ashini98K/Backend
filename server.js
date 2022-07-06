@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 
 const userApi = require("./controllers/user_controller");
 const loginApi = require("./controllers/login_controller");
+const noteApi = require("./controllers/note_controller");
 
 dotenv.config();
 const app = express();
@@ -42,3 +43,4 @@ app.route("/").get((req, res) => {
 
 app.use("/user", userApi());
 app.use("/login", loginApi());
+app.use("/note", noteApi());
