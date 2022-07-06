@@ -7,5 +7,6 @@ module.exports = function () {
   router.get("/search/:value", service.searchUser);
   router.put("/update/:id", service.updateUser);
   router.get("/get/id/:id", service.getUserbyId);
+  router.get("/get/all", service.getAllUsers);
   return router;
 };
