@@ -65,14 +65,34 @@ const updateUser = async (req, res) => {
       },
     },
     { upsert: true }
-    // function (err, result) {
-    //   if (err) {
-    //     res.send(err);
-    //   } else {
-    //     res.status(200).send(result);
-    //   }
-    // }
   )
+    .then((data) => {
+      res.status(200).send({ data: data });
+    })
+    .catch((error) => {
+      res.status(500).send({ error: error.message });
+    });
+};
+
+const searchUser = async (req, res) => {
+  const query = {
+    $or: [
+      { firstName: req.params.value },
+      { email: req.params.value },
+      // { _id: req.params.value },
+    ],
+  };
+  await User.find(query)
+    .then((data) => {
+      res.status(200).send({ data: data });
+    })
+    .catch((error) => {
+      res.status(500).send({ error: error.message });
+    });
+};
+
+const getUserbyId = async (req, res) => {
+  await User.findById(req.params.id)
     .then((data) => {
       res.status(200).send({ data: data });
     })
@@ -84,4 +104,6 @@ const updateUser = async (req, res) => {
 module.exports = {
   createUser,
   updateUser,
+  searchUser,
+  getUserbyId,
 };
