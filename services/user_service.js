@@ -13,8 +13,8 @@ const createUser = async (req, res) => {
         var message =
           "Temporary Password : " +
           req.body.password +
-          "link to website : " +
-          "wwww";
+          " link to website : " +
+          "http://localhost:4000/";
         sendMail(req.body.email, subject, message);
       })
       .catch((error) => {
